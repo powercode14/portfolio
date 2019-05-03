@@ -7,13 +7,7 @@
 </head>
 
 <body>
-    <p>hello powercode</p>
-
-    <form action="/helloMybatis">
-        <input type="text" name="param" value="powercode" />
-        <button type="submit">전송</button>
-    </form>
-
-    <h2>${result}</h2>
+<div id="root"></div>
+<script src="/js/react/app.bundle.js"></script>
 </body>
 </html>
