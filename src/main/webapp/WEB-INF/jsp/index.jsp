@@ -1,21 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<!doctype html>
+<!Doctype html>
 
 <html>
 <head>
 <title>Portfolio by KSH</title>
 <script src="webjars/jquery/3.2.1/dist/jquery.min.js"></script>
 <script>
+var scrollValue;
+
 $(document).ready(function() {
     $(".nav-sm > ul").hide();
 
-    $(".nav-sm > a").on("click", function () {
+    $(".nav-sm > a").on("click", function (e) {
+        e.preventDefault();
         $(".nav-sm > ul").slideToggle(0, function(){
             var isVisible = $(this).is(':visible');
+            var isIntroScroll = scrollValue >= $('.Intro').offset().top ? true : false;
+
             if(isVisible) {
-                $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-close.png').animate({opacity: 0.7}, 500);
+                if(isIntroScroll) {
+                    $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-close.png').animate({opacity: 0.3}, 500);
+                } else {
+                    $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-close-white.png').animate({opacity: 0.7}, 500);
+                }
             } else {
-                $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-white.png').animate({opacity: 0.7}, 500);
+                if(isIntroScroll) {
+                    $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list.png').animate({opacity: 0.3}, 500);
+                } else {
+                    $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-white.png').animate({opacity: 0.7}, 500);
+                }
             }
         });
     });
@@ -28,6 +41,30 @@ $(document).ready(function() {
     });
 
     type();
+});
+
+$(window).scroll(function () {
+    scrollValue = $(document).scrollTop();
+    var targetScrollValue = $('.Intro').offset().top;
+    var isVisable = $(".nav-sm > ul").is(':visible');
+
+    if(scrollValue >= targetScrollValue) {
+        $(".nav-sm .menu-link").css({color: 'darkgrey'});
+        if(isVisable) {
+            $(".nav-sm img").attr("src", "image/list-close.png");
+        } else {
+            $(".nav-sm img").attr("src", "image/list.png");
+        }
+        $(".nav-sm img").css("opacity", "0.3");
+    } else {
+        $(".nav-sm .menu-link").css({color: 'lightgrey'});
+        if(isVisable) {
+            $(".nav-sm img").attr("src", "image/list-close-white.png");
+        } else {
+            $(".nav-sm img").attr("src", "image/list-white.png");
+        }
+        $(".nav-sm img").css("opacity", "0.7");
+    }
 });
 
 function type(){
@@ -49,10 +86,13 @@ function pageMove($t){
     var className = $t.text();
     var target = $('.' + className);
     var scmove = target.offset().top;
-    $('html, body').animate( { scrollTop : scmove }, 400 );
+    $("html, body").animate( { scrollTop : scmove }, 300 );
+    $(this).trigger("click");
 }
 </script>
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100');
+
     body {
         margin: 0;
     }
@@ -83,10 +123,63 @@ function pageMove($t){
         animation: blink 1s step-end infinite;
     }
     .Intro {
+        display: flex;
         height: 100%;
+    }
+    .intro-desc {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Noto Sans KR', sans-serif;
+        margin-bottom: 4rem;
+        margin-top: 4rem;
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 100%;
+    }
+    .intro-desc-right p {
+        margin: 1vh 1vw;
+        line-height: 1.5em;
+        text-align: right;
+        font-size: 1em;
+        font-weight: bold;
+    }
+    .intro-desc > h1 {
+        margin: 1vh 1vw;
+        font-size: 2em;
+        font-weight: 900;
+        text-align: right;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    .intro-title {
+        position: relative;
+        display: inline-block;
+        margin-left: 2vw;
+        margin-right: 15vw;
+        text-align: center;
+        align-self: center;
+        width: 30vw;
+
+    }
+    .intro-title::after{
+        position: absolute;
+        content: "";
+        top:100%;
+        height:2px;
+        width: 4.5vw;
+        left: -4.5vw;
+        right: 0;
+        margin:0 auto;
+        background:rgb(123, 124, 212);
+    }
+    .intro-title > p {
+        font-family: monospace serif;
+        font-size: 2vw;
+        font-weight : bold;
+        margin: 0 auto;
     }
     .Skills {
         height: 100vh;
+        background-color: floralwhite;
     }
     .Project {
         height: 100vh;
@@ -141,26 +234,6 @@ function pageMove($t){
     .nav-lg .menu-link:hover { /* topMenu 아이디를 가진 태그 안에 menu-link클래스를 가진 태그에 마우스가 over되면 스타일 설정 */
         color: rgb(135, 206, 250); /* 글씨 색을 붉은색으로 설정 */
     }
-    .Intro {
-        display: flex;
-    }
-    .intro-title {
-        display: flex;
-        justify-content: center;
-        background-color: black;
-        width: 25vw;
-    }
-    .intro-title > h1 {
-        color: white;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
-    }
-    .intro-desc {
-        display: flex;
-        justify-content: flex-start;
-        background-color: lightyellow;
-        width: 75vw;
-    }
 }
 @media (max-width: 1039px) {
     .Main > h1 {
@@ -169,8 +242,11 @@ function pageMove($t){
     .nav-lg {
         display: none;
     }
+    .Header {
+        display: flex;
+        flex-direction: row-reverse;
+    }
     .nav-sm {
-        display: block;
         width: 90vw;
         margin-top: 1.5vh;
         text-align: right;
@@ -199,16 +275,37 @@ function pageMove($t){
     .nav-sm .menu-link:hover {
         color: rgb(135, 206, 250);
     }
+    .Intro {
+        flex-direction: column-reverse;
+    }
     .intro-title {
-        display: flex;
-        justify-content: center;
-        background-color: black;
+        width: fit-content;
+        height: 100%;
+        margin: 8vh auto;
     }
-    .intro-title > h1 {
-        color: white;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
+    .intro-title::after{
+        height:2px;
+        width: 15.5vw;
+        left: -15vw;
     }
+    .intro-title > p {
+        font-family: monospace serif;
+        font-size: 7vw;
+        font-weight : bold;
+    }
+    .intro-desc {
+        margin-top: 0;
+    }
+    .intro-desc > h1 {
+        text-align: center;
+        font-size: 5vw;
+    }
+    .intro-desc-right p {
+        line-height: 1.5em;
+        text-align: center;
+        font-size: 3vw;
+    }
+
 }
 
 @keyframes blink {
@@ -249,11 +346,19 @@ function pageMove($t){
             <h1></h1>
         </div>
         <div class="Intro">
-            <div class="intro-title">
-                <h1>Introduce</h1>
-            </div>
             <div class="intro-desc">
-                <p>hello</p>
+                <h1>풀스택 개발자</h1>
+                <section class="intro-desc-right">
+                    <p>심플하고 편리한 웹사이트를 지향하는 웹개발자 강세환 입니다.<br>
+                        초등학교 저학년 때부터 컴퓨터를 스스로 포맷하고 게임을 하면서 컴퓨터에 관심이 많이 생겼습니다.<br>
+                        개발자의 꿈을 가지게 된 시기는 대학교 3학년이라서 얼마 되지 않았지만 누구보다 빠르게 성장하고 있습니다.</p>
+                    <p>저는 웹서비스를 제공하기 위한 모든 것, 즉 A부터 Z까지 아는 풀스택 개발자가 되기 위해 매일 공부하고 있으며<br>
+                        어디에서나 필요로하는 개발자가 되고 싶습니다.
+                    </p>
+                </section>
+            </div>
+            <div class="intro-title">
+                <p>Introduce</p>
             </div>
         </div>
         <div class="Skills">
