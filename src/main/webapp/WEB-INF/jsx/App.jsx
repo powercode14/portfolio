@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
-import '../css/custom.css';
+import '../../css/custom.css';
 import Header from "./Header";
 
 class App extends Component {
