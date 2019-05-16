@@ -117,6 +117,7 @@ function pageMove($t){
         color: #fff;
     }
     .Main > h1 {
+        font-family: Noto Sans KR,sans-serif;
         border-right: .1em solid #fff;
         white-space: pre;
         animation: blink 1s step-end infinite;
@@ -147,9 +148,9 @@ function pageMove($t){
         font-size: 2em;
         font-weight: 900;
         text-align: right;
-        font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'Noto Sans KR', serif;
     }
-    .intro-title {
+    .title {
         position: relative;
         display: inline-block;
         margin-left: 2vw;
@@ -157,9 +158,9 @@ function pageMove($t){
         text-align: center;
         align-self: center;
         width: 30vw;
-
+        font-family: Noto Sans KR, serif;
     }
-    .intro-title::after{
+    .title::after{
         position: absolute;
         content: "";
         top:100%;
@@ -170,7 +171,7 @@ function pageMove($t){
         margin:0 auto;
         background:rgb(123, 124, 212);
     }
-    .intro-title > p {
+    .title > p {
         font-family: monospace serif;
         font-size: 2vw;
         font-weight : bold;
@@ -277,17 +278,17 @@ function pageMove($t){
     .Intro {
         flex-direction: column-reverse;
     }
-    .intro-title {
+    .title {
         width: fit-content;
         height: 100%;
         margin: 8vh auto;
     }
-    .intro-title::after{
+    .title::after{
         height:2px;
         width: 15.5vw;
         left: -15vw;
     }
-    .intro-title > p {
+    .title > p {
         font-family: monospace serif;
         font-size: 7vw;
         font-weight : bold;
@@ -356,11 +357,17 @@ function pageMove($t){
                     </p>
                 </section>
             </div>
-            <div class="intro-title">
+            <div class="title">
                 <p>Introduce</p>
             </div>
         </div>
         <div class="Skills">
+            <div class="title">
+                <p>Skills</p>
+            </div>
+            <div class="desc">
+
+            </div>
         </div>
         <div class="Project">
         </div>
