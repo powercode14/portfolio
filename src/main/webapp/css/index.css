@@ -83,8 +83,9 @@ body {
     font-family: sans-serif;
 }
 .title {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    display: inline-block;
     text-align: center;
     font-family: sans-serif;
     width: fit-content;
@@ -125,6 +126,9 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
+.Intro > div {
+    opacity: 0;
+}
 .Intro .title {
     width: 30vw;
     align-self: center;
@@ -138,9 +142,30 @@ body {
     margin: 0 15vw 0 7vw;
 }
 .Skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
     background-color: floralwhite;
     text-align: center;
+}
+.Skills .desc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 50%;
+    align-items: center;
+}
+.Skills .item {
+    text-align: center;
+    display: inline-block;
+    width:114px;
+    height:116px;
+    border-radius: 30px 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
 }
 .Project {
     height: 100vh;
@@ -185,6 +210,12 @@ body {
         font-weight: bold;
         color: lightgrey;
         opacity: 0.7%;
+    }
+    .title > p {
+        font-family: monospace serif;
+        font-size: 7vw;
+        font-weight : bold;
+        margin: 0 auto;
     }
     .nav-sm .menu-link:hover {
         color: rgb(135, 206, 250);

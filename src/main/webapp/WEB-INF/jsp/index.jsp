@@ -5,7 +5,7 @@
 <head>
     <title>Portfolio by KSH</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
 
     <script>
         var scrollValue;
@@ -21,15 +21,15 @@
 
                     if(isVisible) {
                         if(isIntroScroll) {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-close.png').animate({opacity: 0.3}, 500);
+                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list-close.png').animate({opacity: 0.3}, 500);
                         } else {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-close-white.png').animate({opacity: 0.7}, 500);
+                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list-close-white.png').animate({opacity: 0.7}, 500);
                         }
                     } else {
                         if(isIntroScroll) {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list.png').animate({opacity: 0.3}, 500);
+                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list.png').animate({opacity: 0.3}, 500);
                         } else {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', 'image/list-white.png').animate({opacity: 0.7}, 500);
+                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list-white.png').animate({opacity: 0.7}, 500);
                         }
                     }
                 });
@@ -49,23 +49,28 @@
             scrollValue = $(document).scrollTop();
             var targetScrollValue = $('.Intro').offset().top;
             var isVisable = $(".nav-sm > ul").is(':visible');
+            var bottomValue = $(window).scrollTop() + $(window).height();
 
             if(scrollValue >= targetScrollValue) {
                 $(".nav-sm .menu-link").css({color: 'darkgrey'});
                 if(isVisable) {
-                    $(".nav-sm img").attr("src", "/image/list-close.png");
+                    $(".nav-sm img").attr("src", "./image/list-close.png");
                 } else {
-                    $(".nav-sm img").attr("src", "/image/list.png");
+                    $(".nav-sm img").attr("src", "./image/list.png");
                 }
                 $(".nav-sm img").css("opacity", "0.3");
+
+            } else if(bottomValue > targetScrollValue + $('.Intro .title > p').outerHeight()) {
+                $('.Intro > div').animate({'opacity': 1, 'margin-right': 'auto'}, 1000);
             } else {
                 $(".nav-sm .menu-link").css({color: 'lightgrey'});
                 if(isVisable) {
-                    $(".nav-sm img").attr("src", "/image/list-close-white.png");
+                    $(".nav-sm img").attr("src", "./image/list-close-white.png");
                 } else {
-                    $(".nav-sm img").attr("src", "/image/list-white.png");
+                    $(".nav-sm img").attr("src", "./image/list-white.png");
                 }
                 $(".nav-sm img").css("opacity", "0.7");
+
             }
         });
 
@@ -107,7 +112,7 @@
                 </ul>
             </div>
             <div class="nav-sm">
-                <a href="#" class="menu"><img src="/image/list-white.png" /></a>
+                <a href="#" class="menu"><img src="./image/list-white.png" /></a>
                 <ul>
                     <li><a href="#" class="menu-link">Home</a></li>
                     <li><a href="#" class="menu-link">Intro</a></li>
@@ -141,7 +146,32 @@
                 <p>Skills</p>
             </div>
             <div class="desc">
-
+                <div class="item" style='background-image: url("./image/icon-c.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-cpp.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-java.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-html.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-css.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-js.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-jquery.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-jsp.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-oracle.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-windows.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-linux.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-git.png")'>
+                </div>
+                <div class="item" style='background-image: url("./image/icon-svn.png")'>
+                </div>
             </div>
         </div>
         <div class="Project">
