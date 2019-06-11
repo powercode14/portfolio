@@ -4,7 +4,7 @@
 <head>
     <title>Portfolio by KSH</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index.css?ver=1">
 
     <script>
         var scrollValue;
@@ -191,7 +191,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="item" style='background-image: url("./image/icon-windows.png")'>
-                            </div>&nbsp;&nbsp;&nbsp;
+                            </div>
                             <div class="item" style='background-image: url("./image/icon-linux.png")'>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="item" style='background-image: url("./image/icon-git.png")'>
-                            </div>&nbsp;&nbsp;&nbsp;
+                            </div>
                             <div class="item" style='background-image: url("./image/icon-svn.png")'>
                             </div>
                         </div>

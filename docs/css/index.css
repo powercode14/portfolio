@@ -164,6 +164,9 @@ body {
     margin-bottom: 5vh;
     box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
 }
+.Skills .panel-group > .panel {
+    width: 30%;
+}
 .Skills .panel-group {
     display: flex;
     flex-direction: row;
@@ -178,6 +181,9 @@ body {
 }
 .Skills .panel > .panel-heading > p {
     margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .Skills .panel > .panel-body{
     display: flex;
