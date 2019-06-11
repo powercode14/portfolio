@@ -86,7 +86,7 @@ body {
     text-align: center;
     font-family: sans-serif;
     width: fit-content;
-    margin: 7vh auto;
+    margin: 5vh auto;
 }
 .title::after{
     content: "";
@@ -143,7 +143,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: white;
+    background-color: lightyellow;
     text-align: center;
 }
 .Skills .desc {
@@ -162,7 +162,6 @@ body {
 }
 .Skills .panel {
     margin-bottom: 5vh;
-    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
 }
 .Skills .panel-group > .panel {
     width: 30%;
@@ -173,22 +172,27 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.Skills .panel > div {
-    padding: 3vh 3vw 3vh 3vw;
-}
 .Skills .panel > .panel-heading{
+    padding: 1vh;
     background-color: skyblue;
+    box-shadow: 0 3px 6px rgba(0,0,0,.5);
+    border-radius: 5px 5px 0 0;
 }
 .Skills .panel > .panel-heading > p {
     margin: 0;
     font-size: 1.5em;
     font-weight: bold;
     font-family: 'Noto Sans KR', sans-serif;
+    text-shadow: 1px 1px floralwhite;
 }
 .Skills .panel > .panel-body{
+    padding: 2vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    box-shadow: 0 3px 6px rgba(0,0,0,.5);
+    border-radius: 0 0 5px 5px;
+    background-color: ghostwhite;
 }
 .Project {
     height: 100vh;
@@ -272,7 +276,19 @@ body {
         text-align: center;
         font-size: 3vw;
     }
-
+    .Skills {
+        height: fit-content;
+    }
+    .Skills .panel-group {
+        display: flex;
+        flex-direction: column;
+    }
+    .Skills .panel-group .panel {
+        width: 100%;
+    }
+    .Skills .item {
+        margin: 1vh auto;
+    }
 }
 
 @keyframes blink {

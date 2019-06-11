@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,7 +10,7 @@
     <script>
         var scrollValue;
 
-        $(document).ready(function() {
+        $(function() {
             $(".nav-sm > ul").hide();
 
             $(".nav-sm > a").on("click", function (e) {
