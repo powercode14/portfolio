@@ -3,9 +3,6 @@
 body {
     margin: 0;
 }
-.All {
-
-}
 .Home {
     height: 100%;
 }
@@ -146,15 +143,11 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: floralwhite;
+    background-color: white;
     text-align: center;
 }
 .Skills .desc {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 50%;
+    width: 75%;
     align-items: center;
 }
 .Skills .item {
@@ -165,6 +158,27 @@ body {
     border-radius: 30px 30px;
     background-size: cover;
     background-repeat: no-repeat;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
+}
+.Skills .panel {
+    margin-bottom: 5vh;
+}
+.Skills .panel > div {
+    padding: 3vh 3vw 3vh 3vw;
+}
+.Skills .panel > .panel-heading{
+    border-radius: 10px 10px 0 0;
+    background-color: skyblue;
+}
+.Skills .panel > .panel-heading > p {
+    margin: 0;
+}
+.Skills .panel > .panel-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid skyblue;
+    border-radius: 0 0 10px 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
 }
 .Project {

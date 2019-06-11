@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<!Doctype html>
+<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
     <title>Portfolio by KSH</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -146,32 +146,54 @@
                 <p>Skills</p>
             </div>
             <div class="desc">
-                <div class="item" style='background-image: url("./image/icon-c.png")'>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <p>Language</p>
+                    </div>
+                    <div class="panel-body">
+                        <div class="item" style='background-image: url("./image/icon-java.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-c.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-cpp.png")'>
+                        </div>
+                    </div>
                 </div>
-                <div class="item" style='background-image: url("./image/icon-cpp.png")'>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <p>Front-End</p>
+                    </div>
+                    <div class="panel-body">
+                        <div class="item" style='background-image: url("./image/icon-html.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-css.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-js.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-jquery.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-jsp.png")'>
+                        </div>
+                    </div>
                 </div>
-                <div class="item" style='background-image: url("./image/icon-java.png")'>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <p>ETC(DB, OS, </p>
+                    </div>
+                    <div class="panel-body">
+                        <div class="item" style='background-image: url("./image/icon-oracle.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-windows.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-linux.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-git.png")'>
+                        </div>
+                        <div class="item" style='background-image: url("./image/icon-svn.png")'>
+                        </div>
+                    </div>
                 </div>
-                <div class="item" style='background-image: url("./image/icon-html.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-css.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-js.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-jquery.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-jsp.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-oracle.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-windows.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-linux.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-git.png")'>
-                </div>
-                <div class="item" style='background-image: url("./image/icon-svn.png")'>
-                </div>
+
             </div>
         </div>
         <div class="Project">
