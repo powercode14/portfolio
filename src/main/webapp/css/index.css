@@ -162,12 +162,18 @@ body {
 }
 .Skills .panel {
     margin-bottom: 5vh;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
+}
+.Skills .panel-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .Skills .panel > div {
     padding: 3vh 3vw 3vh 3vw;
 }
 .Skills .panel > .panel-heading{
-    border-radius: 10px 10px 0 0;
     background-color: skyblue;
 }
 .Skills .panel > .panel-heading > p {
@@ -177,9 +183,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: 1px solid skyblue;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
 }
 .Project {
     height: 100vh;

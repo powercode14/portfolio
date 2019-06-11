@@ -3,9 +3,6 @@
 body {
     margin: 0;
 }
-.All {
-
-}
 .Home {
     height: 100%;
 }
@@ -18,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("../image/home.jpg");
+    background-image: url("/image/home.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,8 +80,9 @@ body {
     font-family: sans-serif;
 }
 .title {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    display: inline-block;
     text-align: center;
     font-family: sans-serif;
     width: fit-content;
@@ -125,6 +123,9 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
+.Intro > div {
+    opacity: 0;
+}
 .Intro .title {
     width: 30vw;
     align-self: center;
@@ -138,9 +139,50 @@ body {
     margin: 0 15vw 0 7vw;
 }
 .Skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
-    background-color: floralwhite;
+    background-color: white;
     text-align: center;
+}
+.Skills .desc {
+    width: 75%;
+    align-items: center;
+}
+.Skills .item {
+    text-align: center;
+    display: inline-block;
+    width:114px;
+    height:116px;
+    border-radius: 30px 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
+}
+.Skills .panel {
+    margin-bottom: 5vh;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
+}
+.Skills .panel-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Skills .panel > div {
+    padding: 3vh 3vw 3vh 3vw;
+}
+.Skills .panel > .panel-heading{
+    background-color: skyblue;
+}
+.Skills .panel > .panel-heading > p {
+    margin: 0;
+}
+.Skills .panel > .panel-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .Project {
     height: 100vh;
@@ -185,6 +227,12 @@ body {
         font-weight: bold;
         color: lightgrey;
         opacity: 0.7%;
+    }
+    .title > p {
+        font-family: monospace serif;
+        font-size: 7vw;
+        font-weight : bold;
+        margin: 0 auto;
     }
     .nav-sm .menu-link:hover {
         color: rgb(135, 206, 250);

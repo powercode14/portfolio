@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -176,24 +175,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel">
-                    <div class="panel-heading">
-                        <p>ETC(DB, OS, </p>
+                <div class="panel-group">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <p>DB</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="item" style='background-image: url("./image/icon-oracle.png")'>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <div class="item" style='background-image: url("./image/icon-oracle.png")'>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <p>OS</p>
                         </div>
-                        <div class="item" style='background-image: url("./image/icon-windows.png")'>
+                        <div class="panel-body">
+                            <div class="item" style='background-image: url("./image/icon-windows.png")'>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="item" style='background-image: url("./image/icon-linux.png")'>
+                            </div>
                         </div>
-                        <div class="item" style='background-image: url("./image/icon-linux.png")'>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <p>Version Control</p>
                         </div>
-                        <div class="item" style='background-image: url("./image/icon-git.png")'>
-                        </div>
-                        <div class="item" style='background-image: url("./image/icon-svn.png")'>
+                        <div class="panel-body">
+                            <div class="item" style='background-image: url("./image/icon-git.png")'>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="item" style='background-image: url("./image/icon-svn.png")'>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="Project">
