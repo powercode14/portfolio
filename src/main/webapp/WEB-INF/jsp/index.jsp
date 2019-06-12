@@ -8,32 +8,8 @@
     <link rel="stylesheet" href="./css/index.css?ver=1">
 
     <script>
-        var scrollValue;
-
         $(function() {
-            $(".nav-sm > ul").hide();
-
-            $(".nav-sm > a").on("click", function (e) {
-                e.preventDefault();
-                $(".nav-sm > ul").slideToggle(0, function(){
-                    var isVisible = $(this).is(':visible');
-                    var isIntroScroll = scrollValue >= $('.Intro').offset().top ? true : false;
-
-                    if(isVisible) {
-                        if(isIntroScroll) {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list-close.png').animate({opacity: 0.3}, 500);
-                        } else {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list-close-white.png').animate({opacity: 0.7}, 500);
-                        }
-                    } else {
-                        if(isIntroScroll) {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list.png').animate({opacity: 0.3}, 500);
-                        } else {
-                            $(".nav-sm img").css('opacity', '0').stop().attr('src', './image/list-white.png').animate({opacity: 0.7}, 500);
-                        }
-                    }
-                });
-            });
+            $(".Header").animate({'opacity': '1'}, 1500);
 
             $(".menu-link").each(function(i){
                 $(this).click(function(e){
@@ -43,35 +19,27 @@
             });
 
             type();
-        });
 
-        $(window).scroll(function () {
-            scrollValue = $(document).scrollTop();
-            var targetScrollValue = $('.Intro').offset().top;
-            var isVisable = $(".nav-sm > ul").is(':visible');
-            var bottomValue = $(window).scrollTop() + $(window).height();
+            $(window).scroll(function () {
+                $('.hide').each(function (i) {
 
-            if(scrollValue >= targetScrollValue) {
-                $(".nav-sm .menu-link").css({color: 'darkgrey'});
-                if(isVisable) {
-                    $(".nav-sm img").attr("src", "./image/list-close.png");
-                } else {
-                    $(".nav-sm img").attr("src", "./image/list.png");
-                }
-                $(".nav-sm img").css("opacity", "0.3");
+                    var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-            } else if(bottomValue > targetScrollValue + $('.Intro .title > p').outerHeight()) {
-                $('.Intro > div').animate({'opacity': 1, 'margin-right': 'auto'}, 1000);
-            } else {
-                $(".nav-sm .menu-link").css({color: 'lightgrey'});
-                if(isVisable) {
-                    $(".nav-sm img").attr("src", "./image/list-close-white.png");
-                } else {
-                    $(".nav-sm img").attr("src", "./image/list-white.png");
-                }
-                $(".nav-sm img").css("opacity", "0.7");
+                    if (bottom_of_window > bottom_of_object) {
+                        $(this).animate({'opacity': '1'}, 1000);
+                    }
 
-            }
+                });
+            });
+
+            $("#toggle").on('click', function(){
+               if(!$(this).hasClass('on')){
+                   $(this).addClass('on');
+               } else {
+                   $(this).removeClass('on');
+               }
+            });
         });
 
         function type(){
@@ -96,12 +64,13 @@
             $("html, body").animate( { scrollTop : scmove }, 300 );
             $(this).trigger("click");
         }
+
     </script>
 </head>
 <body>
 <div class="All">
     <div class="Home">
-        <div class="Header">
+        <div class="Header hide">
             <div class="nav-lg">
                 <ul>
                     <li><a href="#" class="menu-link">Home</a></li>
@@ -111,22 +80,24 @@
                     <li><a href="#" class="menu-link">Contact</a></li>
                 </ul>
             </div>
-            <div class="nav-sm">
-                <a href="#" class="menu"><img src="./image/list-white.png" /></a>
-                <ul>
-                    <li><a href="#" class="menu-link">Home</a></li>
-                    <li><a href="#" class="menu-link">Intro</a></li>
-                    <li><a href="#" class="menu-link">Skills</a></li>
-                    <li><a href="#" class="menu-link">Project</a></li>
-                    <li><a href="#" class="menu-link">Contact</a></li>
-                </ul>
+            <div class="nav-sm hidden">
+                <a href="#" class="menu" id="toggle"><span></span></a>
+                <div id="menu">
+                    <ul>
+                        <li><a href="#" class="menu-link">Home</a></li>
+                        <li><a href="#" class="menu-link">Intro</a></li>
+                        <li><a href="#" class="menu-link">Skills</a></li>
+                        <li><a href="#" class="menu-link">Project</a></li>
+                        <li><a href="#" class="menu-link">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="Main">
             <h1></h1>
         </div>
         <div class="Intro">
-            <div class="desc">
+            <div class="desc hide">
                 <h1>풀스택 개발자</h1>
                 <section class="desc-right">
                     <p>심플하고 편리한 웹사이트를 지향하는 웹개발자 강세환 입니다.<br>
@@ -137,16 +108,16 @@
                     </p>
                 </section>
             </div>
-            <div class="title">
+            <div class="title hide">
                 <p>Introduce</p>
             </div>
         </div>
         <div class="Skills">
-            <div class="title">
+            <div class="title hide">
                 <p>Skills</p>
             </div>
             <div class="desc">
-                <div class="panel">
+                <div class="panel hide">
                     <div class="panel-heading">
                         <p>Language</p>
                     </div>
@@ -159,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel">
+                <div class="panel hide">
                     <div class="panel-heading">
                         <p>Front-End</p>
                     </div>
@@ -177,7 +148,7 @@
                     </div>
                 </div>
                 <div class="panel-group">
-                    <div class="panel">
+                    <div class="panel hide">
                         <div class="panel-heading">
                             <p>DB</p>
                         </div>
@@ -186,7 +157,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel">
+                    <div class="panel hide">
                         <div class="panel-heading">
                             <p>OS</p>
                         </div>
@@ -197,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel">
+                    <div class="panel hide">
                         <div class="panel-heading">
                             <p>Version Control</p>
                         </div>
