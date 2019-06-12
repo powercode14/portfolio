@@ -33,12 +33,13 @@
                 });
             });
 
-            $("#toggle").on('click', function(){
-               if(!$(this).hasClass('on')){
+            $("#toggle").on('click', function(e){
+                e.preventDefault();
+                if(!$(this).hasClass('on')){
                    $(this).addClass('on');
-               } else {
+                } else {
                    $(this).removeClass('on');
-               }
+                }
             });
         });
 
