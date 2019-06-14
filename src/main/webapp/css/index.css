@@ -15,6 +15,7 @@ body {
 .Header {
     position: fixed;
     width: 95vw;
+    z-index: 1;
 }
 .Main {
     display: flex;
@@ -209,20 +210,33 @@ body {
 .Project .image {
     height: 290px;
     width: 30%;
-    background-image: url("../image/cafetale.png");
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
-.Project .table {
+.Project .content {
     margin: 2vh 2vw 2vh 2vw;
+    width: 70%;
 }
-.Project .table h1, p{
+.Project .content h1 {
     margin-top: 0;
     margin-bottom: 0;
-    float: left;
-    display: table-cell;
-    line-height: 2rem;
     vertical-align: bottom;
+}
+.Project .content h3,
+.Project .content h4{
+    font-weight: 400;
+}
+.Project .content p {
+    margin-bottom: 0;
+}
+a.del:link,
+a.del:visited,
+a.del:active,
+a.del:hover {
+    cursor: not-allowed;
+    text-decoration: line-through;
+    color: black;
 }
 .Contact {
     height: 100vh;
@@ -327,7 +341,6 @@ body {
         width: 45px;
         margin: 2vh 0;
     }
-
     #toggle span:after,
     #toggle span:before {
         content: "";
@@ -404,6 +417,18 @@ body {
     #menu li a:focus {
         background: #1ABC9C;
         color: #fff;
+    }
+    .Project .box {
+        flex-direction: column;
+    }
+    .Project .image {
+        width: 100%;
+    }
+    .Project .content {
+        width: 100%;
+    }
+    .Project .content h1 {
+        margin-top: 5vh;
     }
 }
 
