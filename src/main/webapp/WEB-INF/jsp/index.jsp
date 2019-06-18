@@ -75,7 +75,7 @@
             <div class="nav-lg">
                 <ul>
                     <li><a href="#" class="menu-link">Home</a></li>
-                    <li><a href="#" class="menu-link">Intro</a></li>
+                    <li><a href="#" class="menu-link">About</a></li>
                     <li><a href="#" class="menu-link">Skills</a></li>
                     <li><a href="#" class="menu-link">Project</a></li>
                     <li><a href="#" class="menu-link">Contact</a></li>
@@ -86,7 +86,7 @@
                 <div id="menu">
                     <ul>
                         <li><a href="#" class="menu-link">Home</a></li>
-                        <li><a href="#" class="menu-link">Intro</a></li>
+                        <li><a href="#" class="menu-link">About</a></li>
                         <li><a href="#" class="menu-link">Skills</a></li>
                         <li><a href="#" class="menu-link">Project</a></li>
                         <li><a href="#" class="menu-link">Contact</a></li>
@@ -97,7 +97,7 @@
         <div class="Main">
             <h1></h1>
         </div>
-        <div class="Intro">
+        <div class="About">
             <div class="desc hide">
                 <h1>풀스택 개발자</h1>
                 <section class="desc-right">
@@ -110,7 +110,7 @@
                 </section>
             </div>
             <div class="title hide">
-                <p>Introduce</p>
+                <p>About</p>
             </div>
         </div>
         <div class="Skills">
