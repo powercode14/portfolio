@@ -20,17 +20,37 @@
 
             type();
 
-            $(window).scroll(function () {
-                $('.hide').each(function (i) {
+            var b = $(".nav-lg").css('display') == 'none' ? $(".nav-sm > div#menu") : $(".nav-lg");
+            $(window).resize(function(){
+                b = $(".nav-lg").css('display') == 'none' ? $(".nav-sm > div#menu") : $(".nav-lg");
+            });
 
+            $(window).scroll(function () {
+                /* 숨겨진 객체 나타나는 애니메이션 */
+                $('.hide').each(function () {
                     var bottom_of_object = $(this).position().top + $(this).outerHeight();
                     var bottom_of_window = $(window).scrollTop() + $(window).height();
 
                     if (bottom_of_window > bottom_of_object) {
-                        $(this).animate({'opacity': '1'}, 1000);
+                        $(this).animate({'opacity': '1'}, 800);
                     }
-
                 });
+
+                /* 스크롤 스파이 */
+                var a,
+                    c = b.outerHeight() + 15,
+                    d = b.find("a"),
+                    e = d.map(function () {
+                        var f = $($(this).attr("href"));
+                        if (f.length) return f
+                    }),
+                    f = $(this).scrollTop() + c,
+                    g = e.map(function () {
+                        if ($(this).offset().top < f) return this
+                    });
+                g = g[g.length - 1];
+                var h = g && g.length ? g[0].id : "";
+                a !== h && (a = h, d.css("color", "lightgrey").parent().removeClass("active").end().filter("[href='#" + h + "']").css("color", "white").parent().addClass("active"))
             });
 
             $("#toggle").on('click', function(e){
@@ -40,6 +60,18 @@
                 } else {
                    $(this).removeClass('on');
                 }
+            });
+
+            $(".Project .image:eq(0)").on('click', function(){
+                open('../file/조작영상.mp4');
+            });
+
+            $(".Project .image:eq(1)").on('click', function(){
+                open('../file/cafetale-portfolio.pdf');
+            });
+
+            $("#clipboard").on('click', function(){
+                clipboard();
             });
         });
 
@@ -63,41 +95,52 @@
             var target = $('.' + className);
             var scmove = target.offset().top;
             $("html, body").animate( { scrollTop : scmove }, 300 );
-            $(this).trigger("click");
+            //$("#toggle").trigger("click");
+        }
+
+
+        function clipboard() {
+            var text = $("#clipboard-email").text();
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(text).select();
+            document.execCommand("copy");
+            $temp.remove();
+            alert("클립보드에 복사되었습니다.");
         }
 
     </script>
 </head>
 <body>
 <div class="All">
-    <div class="Home">
+    <div class="Home" id="Home">
         <div class="Header hide">
             <div class="nav-lg">
                 <ul>
-                    <li><a href="#" class="menu-link">Home</a></li>
-                    <li><a href="#" class="menu-link">About</a></li>
-                    <li><a href="#" class="menu-link">Skills</a></li>
-                    <li><a href="#" class="menu-link">Project</a></li>
-                    <li><a href="#" class="menu-link">Contact</a></li>
+                    <li><a href="#Home" class="menu-link">Home</a></li>
+                    <li><a href="#About" class="menu-link">About</a></li>
+                    <li><a href="#Skills" class="menu-link">Skills</a></li>
+                    <li><a href="#Project" class="menu-link">Project</a></li>
+                    <li><a href="#Contact" class="menu-link">Contact</a></li>
                 </ul>
             </div>
             <div class="nav-sm hidden">
                 <a href="#" class="menu" id="toggle"><span></span></a>
-                <div id="menu">
+                <div id="menu" class="hidden">
                     <ul>
-                        <li><a href="#" class="menu-link">Home</a></li>
-                        <li><a href="#" class="menu-link">About</a></li>
-                        <li><a href="#" class="menu-link">Skills</a></li>
-                        <li><a href="#" class="menu-link">Project</a></li>
-                        <li><a href="#" class="menu-link">Contact</a></li>
+                        <li><a href="#Home" class="menu-link">Home</a></li>
+                        <li><a href="#About" class="menu-link">About</a></li>
+                        <li><a href="#Skills" class="menu-link">Skills</a></li>
+                        <li><a href="#Project" class="menu-link">Project</a></li>
+                        <li><a href="#Contact" class="menu-link">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="Main">
+        <div class="Main" id="Main">
             <h1></h1>
         </div>
-        <div class="About">
+        <div class="About" id="About">
             <div class="desc hide">
                 <h1>풀스택 개발자</h1>
                 <section class="desc-right">
@@ -113,7 +156,7 @@
                 <p>About</p>
             </div>
         </div>
-        <div class="Skills">
+        <div class="Skills" id="Skills">
             <div class="title hide">
                 <p>Skills</p>
             </div>
@@ -124,10 +167,22 @@
                     </div>
                     <div class="panel-body">
                         <div class="item" style='background-image: url("./image/icon-java.png")'>
+                            <div class="label">
+                                <p>Java</p>
+                                <p>중</p>
+                            </div>
                         </div>
                         <div class="item" style='background-image: url("./image/icon-c.png")'>
+                            <div class="label">
+                                <p>C</p>
+                                <p>하</p>
+                            </div>
                         </div>
                         <div class="item" style='background-image: url("./image/icon-cpp.png")'>
+                            <div class="label">
+                                <p>C++</p>
+                                <p>하</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,14 +192,34 @@
                     </div>
                     <div class="panel-body">
                         <div class="item" style='background-image: url("./image/icon-html.png")'>
+                            <div class="label">
+                                <p>HTML</p>
+                                <p>중</p>
+                            </div>
                         </div>
                         <div class="item" style='background-image: url("./image/icon-css.png")'>
+                            <div class="label">
+                                <p>CSS</p>
+                                <p>하</p>
+                            </div>
                         </div>
                         <div class="item" style='background-image: url("./image/icon-js.png")'>
+                            <div class="label">
+                                <p>Javascript</p>
+                                <p>중</p>
+                            </div>
                         </div>
                         <div class="item" style='background-image: url("./image/icon-jquery.png")'>
+                            <div class="label">
+                                <p>jQuery</p>
+                                <p>중</p>
+                            </div>
                         </div>
                         <div class="item" style='background-image: url("./image/icon-jsp.png")'>
+                            <div class="label">
+                                <p>JSP</p>
+                                <p>하</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -155,6 +230,10 @@
                         </div>
                         <div class="panel-body">
                             <div class="item" style='background-image: url("./image/icon-oracle.png")'>
+                                <div class="label">
+                                    <p>Oracle</p>
+                                    <p>중</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -164,8 +243,16 @@
                         </div>
                         <div class="panel-body">
                             <div class="item" style='background-image: url("./image/icon-windows.png")'>
+                                <div class="label">
+                                    <p>Windows</p>
+                                    <p>중</p>
+                                </div>
                             </div>
                             <div class="item" style='background-image: url("./image/icon-linux.png")'>
+                                <div class="label">
+                                    <p>Linux</p>
+                                    <p>하</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -175,44 +262,70 @@
                         </div>
                         <div class="panel-body">
                             <div class="item" style='background-image: url("./image/icon-git.png")'>
+                                <div class="label">
+                                    <p>Git</p>
+                                    <p>중</p>
+                                </div>
                             </div>
                             <div class="item" style='background-image: url("./image/icon-svn.png")'>
+                                <div class="label">
+                                    <p>SVN</p>
+                                    <p>하</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="Project">
+        <div class="Project" id="Project">
             <div class="title hide">
                 <p>Project</p>
             </div>
             <div class="desc">
-                <div class="box">
-                    <div class="image hide" style='background-image: url("./image/cafetale.png")'>
+                <div class="box hide">
+                    <div class="image" style='background-image: url("./image/smartcar.gif"); cursor: pointer;'>
                     </div>
-                    <div class="content hide">
-                        <h1>Café tale</h1>
+                    <div class="content">
+                        <h1>라즈베리파이 스마트카 (졸업작품)</h1>
+                        <h3>스마트카로 센서노드의 온도/습도/조도 데이터 수집 → 안드로이드 어플로 전송 및 데이터 확인</h3>
+                        <h4>프로젝트 기간 : 2016.06 ~ 2016.11</h4>
+                        <h4>사용기술 : Android, java, C</h4>
+                        <a href="https://github.com/powercode14/smartcar" target="_blank">소스보기</a>
+                    </div>
+                </div>
+                <div class="box hide">
+                    <div class="image" style='background-image: url("./image/cafetale.png"); cursor: pointer;'>
+                    </div>
+                    <div class="content">
+                        <h1>Café tale (포트폴리오용)</h1>
                         <h3>키워드로 카페검색 및 게시판을 이용할 수 있는 웹서비스.</h3>
                         <h4>프로젝트 기간 : 2016.12 ~ 2017.02</h4>
                         <h4>사용기술 : jsp, jQuery, Spring, Oracle, mybatis</h4>
                         <a href="https://github.com/powercode14/cafetale" target="_blank">소스보기</a>
                     </div>
                 </div>
-                <div class="box">
-                    <div class="image hide" style='background-image: url("./image/no-image.png")'>
+                <div class="box hide">
+                    <div class="image" style='background-image: url("./image/no-image.png")'>
                     </div>
-                    <div class="content hide">
-                        <h1>현대파워텍 유해물질 관리시스템 구축</h1>
-                        <h4>프로젝트 기간 : 2018.04 ~ 2018.08</h4>
+                    <div class="content">
+                        <h1>현대파워텍 유해물질 관리시스템 구축 (실무)</h1>
                         <h3>담당업무 : 솔루션 기능 추가 개발, 고객사 ERP 시스템 연동, 보안 취약점 조치 등</h3>
+                        <h4>프로젝트 기간 : 2018.04 ~ 2018.08</h4>
                         <h4>사용기술 : Egov 3.7(Spring), jsp, jQuery, Polymer, Oracle</h4>
                         <a class="del" href="javascript:void(0);">소스공개 불가</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="Contact">
+        <div class="Contact" id="Contact">
+            <div class="title hide">
+                <p>Contact</p>
+            </div>
+            <div class="desc">
+                <span id="clipboard-email" contenteditable="false">sehoane@gmail.com</span>
+                <input id="clipboard" type="button" title="클립보드에 복사"/>
+            </div>
         </div>
     </div>
 </div>
