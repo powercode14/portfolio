@@ -300,10 +300,11 @@ a.del:hover {
     height: 60px;
 }
 .Contact .desc input#clipboard {
-    border-radius: 5px;
+    border-radius: 10px;
     background: white url(../image/clipboard.png) center no-repeat;
     background-size: contain;
     cursor: grab;
+    width: 55px;
 }
 .Contact .desc input#github {
     border-radius: 50%;
