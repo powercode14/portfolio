@@ -296,9 +296,8 @@ a.del:hover {
     font-family: 'Noto Sans KR', sans-serif;
 }
 .Contact .desc input {
-    width: 40px;
-    height: 40px;
-    margin-top: 7px;
+    width: 60px;
+    height: 60px;
 }
 .Contact .desc input#clipboard {
     border-radius: 5px;
