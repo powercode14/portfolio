@@ -133,6 +133,9 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
+.About .desc b {
+    font-family: cursive;
+}
 .About > div {
     opacity: 0;
 }
@@ -272,30 +275,64 @@ a.del:hover {
     flex-direction: column;
     height: fit-content;
     background: #2d2d2d;
-    padding-bottom: 5vh;
+    padding-bottom: 10vh;
 }
 .Contact .title {
     color: white;
 }
 .Contact .desc {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 10vh);
+    justify-items: center;
+    align-items: center;
 }
-.Contact .desc span {
-    font-size: 1.5em;
+.Contact .desc span,
+.Contact .desc a {
+    font-size: 2em;
     color: white;
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 3px;
-    font-family: 'Noto Sans KR';
+    font-family: 'Noto Sans KR', sans-serif;
 }
 .Contact .desc input {
-    background: url(../image/clipboard.png) no-repeat;
-    width: 29px;
-    height: 29px;
-    background-color: white;
-    border-radius: 5px;
-    background-size: 24px;
+    width: 40px;
+    height: 40px;
     margin-top: 7px;
+}
+.Contact .desc input#clipboard {
+    border-radius: 5px;
+    background: white url(../image/clipboard.png) center no-repeat;
+    background-size: contain;
+    cursor: grab;
+}
+.Contact .desc input#github {
+    border-radius: 50%;
+    background: white url(../image/icon-git.png) center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.Contact .desc input#blog {
+    border-radius: 5px;
+    background: white url(../image/tistory.png) center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.Contact .desc > p {
+    font-size: 2em;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+.Contact .desc input:active {
+    cursor: grabbing;
+}
+.Contact .end p{
+    font-size: 6em;
+    font-family: "Noto Sans KR", sans-serif;
+    color: white;
+    font-weight: 900;
 }
 @media (max-width: 1039px) {
     .Main > h1 {
