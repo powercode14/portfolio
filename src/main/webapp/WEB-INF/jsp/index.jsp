@@ -114,7 +114,7 @@
 <body>
 <div class="All">
     <div class="Home" id="Home">
-        <div class="Header hide">
+        <section class="Header hide">
             <div class="nav-lg">
                 <ul>
                     <li><a href="#Home" class="menu-link">Home</a></li>
@@ -136,11 +136,11 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="Main" id="Main">
+        </section>
+        <section class="Main" id="Main">
             <h1></h1>
-        </div>
-        <div class="About" id="About">
+        </section>
+        <section class="About" id="About">
             <div class="desc hide">
                 <h1>풀스택 개발자</h1>
                 <section class="desc-right">
@@ -156,8 +156,8 @@
             <div class="title hide">
                 <p>About</p>
             </div>
-        </div>
-        <div class="Skills" id="Skills">
+        </section>
+        <section class="Skills" id="Skills">
             <div class="title hide">
                 <p>Skills</p>
             </div>
@@ -284,8 +284,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="Project" id="Project">
+        </section>
+        <section class="Project" id="Project">
             <div class="title hide">
                 <p>Project</p>
             </div>
@@ -323,19 +323,9 @@
                         <a class="del" href="javascript:void(0);">소스공개 불가</a>
                     </div>
                 </div>
-                <div class="box hide">
-                    <div class="image" style='background-image: url("./image/wedding.png")'>
-                    </div>
-                    <div class="content">
-                        <h1>모바일 청첩장 (개인용)</h1>
-                        <h3>본인의 결혼식 홍보를 위해 사용할 셀프 모바일 청첩장</h3>
-                        <h4>프로젝트 기간 : 2019.06 ~ (진행 중, 약 3개월)</h4>
-                        <h4>사용기술 : React</h4>
-                    </div>
-                </div>
             </div>
-        </div>
-        <div class="Contact" id="Contact">
+        </section>
+        <section class="Contact" id="Contact">
             <div class="title hide">
                 <p>Contact</p>
             </div>
@@ -350,7 +340,7 @@
             <div class="end hide">
                 <p>Thank you</p>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 </body>
